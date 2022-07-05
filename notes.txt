@@ -1,0 +1,11 @@
+- download data from kaggle to /data
+- inbalanced dataset
+- implement vgg style net with dropout and batchnorm small enough to train on cpu
+- get sign name labels from another source
+- use data augmentation: rotation (small val), color jitter, perespective transform, blur
+- use weighted and focal loss
+
+TODO:
+- implement stratified k-fold
+- try larger net
+- hardswish activation
