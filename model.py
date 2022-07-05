@@ -18,10 +18,10 @@ class Net(nn.Module):
         def block(in_features, out_features):
             return nn.Sequential(
                 nn.Conv2d(in_features,out_features,kernel_size=3),      # 64x64
-                nn.ReLU(),
+                nn.Hardswish(),
                 nn.BatchNorm2d(out_features),
                 nn.Conv2d(out_features,out_features,kernel_size=3),
-                nn.ReLU(),
+                nn.Hardswish(),
                 nn.BatchNorm2d(out_features),
                 nn.MaxPool2d(kernel_size=2)
             )
@@ -31,7 +31,7 @@ class Net(nn.Module):
         self.block3 = block(32,64)
         self.block4 = nn.Sequential(
             nn.Conv2d(64, 128,kernel_size=3),
-            nn.ReLU(),
+            nn.Hardswish(),
             nn.BatchNorm2d(128),
             nn.MaxPool2d(kernel_size=2)
         )

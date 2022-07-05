@@ -17,7 +17,7 @@ def test():
     test_loader = DataLoader(test_dataset, batch_size=32, shuffle=False)
     model = Net()
     model.to(device)
-    model.load_state_dict(torch.load(f"./out/model_best.pth"))
+    model.load_state_dict(torch.load(Path(Path(__file__).parent.absolute(), "out", "model_best.pth")))
     model.eval()
 
     y_true = []
@@ -45,8 +45,9 @@ def test():
     df_cm = pd.DataFrame(cf_matrix/np.sum(cf_matrix) *10, index = [i for i in classes], columns = [i for i in classes])
     plt.figure(figsize = (36,21))
     sn.heatmap(df_cm, annot=True)
-    plt.savefig('./out/confusion_matrix.png')
+    plt.savefig(Path(Path(__file__).parent.absolute(), "out", "confusion_matrix.png"))
 
 if __name__ == "__main__":
   test()
+
 

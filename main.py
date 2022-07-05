@@ -1,6 +1,7 @@
 import torch
 from torch.utils.data import DataLoader
 import numpy as np
+from pathlib import Path
 
 from dataset import GTSRB, split_train_val
 from model import Net
@@ -12,8 +13,8 @@ USE_AUGMENTATION = True
 TRAIN_BATCH_SIZE = 64
 LEARNING_RATE = 0.001
 LOG_INTERVAL = 10
-EPOCHS = 10
-GAMMA = 2.0
+EPOCHS = 20
+GAMMA = 5.0
 
 n_classes = 43
 
@@ -80,8 +81,8 @@ def main():
 
         if val_loss < best_val_loss:
             best_val_loss = val_loss
-            torch.save(model.state_dict(), f"./out/model_{epoch + 1}.pth")
-            torch.save(model.state_dict(), "./out/model_best.pth")
+            torch.save(model.state_dict(), Path(Path(__file__).parent.absolute(), "out", f"model_{epoch + 1}.pth"))
+            torch.save(model.state_dict(), Path(Path(__file__).parent.absolute(), "out", "model_best.pth"))
             print("Saved best model")
 
     test()
