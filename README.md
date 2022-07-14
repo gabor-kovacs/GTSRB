@@ -1,6 +1,6 @@
 # GTSRB assignment
 
-96.5% accuracy on test data using CNN in pytorch
+94% accuracy on test data using CNN in pytorch
 
 ## Train
 
