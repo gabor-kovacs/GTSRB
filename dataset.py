@@ -77,4 +77,9 @@ class GTSRB(Dataset):
 
 
 if __name__ == "__main__":
-    get_dataset_balance()
+    # get_dataset_balance()
+    train, val = split_train_val(ratio=0.2)
+    # train_dataset = GTSRB(train, use_augmentation=True)
+    val_dataset = GTSRB(val, use_augmentation=True)
+    print(val_dataset[2229])
+

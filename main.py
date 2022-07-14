@@ -25,7 +25,7 @@ def main():
     train_dataset = GTSRB(train, use_augmentation=True)
     val_dataset = GTSRB(val, use_augmentation=True)
     train_loader = DataLoader(train_dataset,batch_size=TRAIN_BATCH_SIZE,shuffle=True)
-    val_loader = DataLoader(train_dataset,batch_size=TRAIN_BATCH_SIZE,shuffle=False)
+    val_loader = DataLoader(val_dataset,batch_size=TRAIN_BATCH_SIZE,shuffle=False)
 
     model = Net()
     model.to(device)

@@ -39,8 +39,10 @@ class Net(nn.Module):
         self.fc = nn.Sequential(
             nn.Flatten(),
             nn.Dropout(p=0.5),
+            nn.Hardswish(),
             nn.Linear(in_features=128, out_features=128),
             nn.Dropout(p=0.5),
+            nn.Hardswish(),
             nn.Linear(in_features=128, out_features=n_classes)
         )
 
